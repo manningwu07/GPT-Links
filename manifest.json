@@ -1,0 +1,35 @@
+{
+    "manifest_version": 3,
+    "name": "GPT-Links",
+    "author": "manningwu123@gmail.com",
+    "version": "1.0",
+    "description": "Need GPT to process websites? videos? files? GPT-Links allows GPT to access and reference any link only one paste away!",
+    "permissions": [
+        "activeTab",
+        "storage",
+        "tabs"
+      ],
+      "content_scripts": [
+        {
+          "matches": ["*://chatgpt.com/*"],
+          "js": ["./js/gpt.js"],
+          "run_at": "document_idle"
+        }
+      ],
+    "background": {
+      "service_worker": "js/background.js"
+    },
+    "action": {
+      "default_popup": "index.html",
+      "default_icon": {
+        "48": "images/icon48.png",
+        "128": "images/icon128.png",
+        "512": "images/icon512.png"
+      }
+    },
+    "icons": {
+      "48": "images/icon48.png",
+      "128": "images/icon128.png",
+      "512": "images/icon512.png"
+    }
+  }
